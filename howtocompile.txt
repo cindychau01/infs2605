@@ -1,9 +1,9 @@
 
-Step 0:
-check that the path to 2605 folder in database.java is correct
-
 Step 1:
-javac main.java
+Make sure the path to sqlite.jar file is right in database.java
 
 Step 2:
-java -classpath ".:sqlite-jdbc-3.23.1.jar" main
+javac app.java
+
+Step 3:
+java -classpath ".:sqlite-jdbc-3.23.1.jar" app
