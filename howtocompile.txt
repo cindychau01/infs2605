@@ -6,4 +6,4 @@ Step 2:
 javac app.java
 
 Step 3:
-java -classpath ".:sqlite-jdbc-3.23.1.jar" app
+java -classpath ".:sqlite-jdbc-3.27.2.1.jar" app
