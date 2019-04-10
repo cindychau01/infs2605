@@ -31,10 +31,24 @@ public class app extends Application{
             System.err.println(createTableException);
         }
 
+        try{
+            boolean loginStatus = database.loginQuery("nicky951", "admin");
+
+            if(loginStatus == true) {
+                System.out.println("nicky951 logged in");
+            } else {
+                System.out.println("failed login");
+            }
+        } catch (SQLException loginException) {
+            System.err.println(loginException);
+        }
+
+        
         try {
             Platform.exit();
         } catch (Exception exitException) {
             System.err.println(exitException);
         }
+        
     }
 }

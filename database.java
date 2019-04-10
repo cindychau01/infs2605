@@ -6,11 +6,17 @@ public class database {
 
     protected Connection connection = null;
 
+    public void openConnection() {
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/nicholasliang/Desktop/2605/app.db");
+        } catch (SQLException failedConnection) {
+            System.err.println(failedConnection);
+        }
+    }
+
     public void createTable() throws SQLException{
         
-        // Create connection
-        connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/nicholasliang/Desktop/2605/app.db");
-
+        openConnection();
         // Statement to insert tables
         Statement s = connection.createStatement();
 
@@ -236,4 +242,44 @@ public class database {
         s.close();
         connection.close();
     } 
-}
+
+    public void insertQuery(String userInsertStatement)  throws SQLException{
+
+        openConnection();
+
+        Statement s = connection.createStatement();
+
+        s.execute(userInsertStatement);
+
+        s.close();
+        connection.close();
+    }
+
+    public boolean loginQuery(String userLogin, String userPassword) throws SQLException{
+        
+        openConnection();
+
+        boolean login = false;
+
+        Statement s = connection.createStatement();
+
+        String user;
+        String password;
+
+        try {
+            ResultSet checkLogin = s.executeQuery("SELECT Username, Password FROM Person WHERE Username = '" + userLogin + "' AND Password = '" + userPassword + "';");
+
+            user = checkLogin.getString("Username");
+            password = checkLogin.getString("Password");
+        
+            if((user.equals(userLogin)) && (password.equals(userPassword))) {
+                login = true;
+            }
+
+        } catch (SQLException noResult) {
+            login = false;   
+        }
+        
+        return login;
+    }
+}   
