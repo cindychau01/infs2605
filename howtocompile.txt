@@ -1,0 +1,8 @@
+Step 1:
+Make sure the path to sqlite.jar file is right in database.java
+
+Step 2:
+javac app.java
+
+Step 3:
+java -classpath ".:sqlite-jdbc-3.27.2.1.jar" app
