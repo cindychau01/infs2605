@@ -7,6 +7,7 @@ import javafx.stage.*;
 import javafx.event.*;
 import java.io.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 
 
 public class app extends Application{
@@ -15,40 +16,27 @@ public class app extends Application{
         launch(args); 
     }
 
-    
+    @Override
     public void start(Stage primaryStage) throws IOException{
 
         database database = new database();
 
         try{
             database.createTable();
-            System.out.println("Created Tables");
-
             database.insertDummyData();
-            System.out.println("Inserted Data");
             
         } catch (SQLException createTableException) {
-            System.err.println(createTableException);
+            System.err.println("Error");
         }
 
-        try{
-            boolean loginStatus = database.loginQuery("nicky951", "admin");
 
-            if(loginStatus == true) {
-                System.out.println("nicky951 logged in");
-            } else {
-                System.out.println("failed login");
-            }
-        } catch (SQLException loginException) {
-            System.err.println(loginException);
-        }
+        FXMLLoader loader = new FXMLLoader();
+        LoginController controller = new LoginController();
+        loader.setController(controller);
+        loader.setLocation(getClass().getResource("Login.fxml"));
 
-        
-        try {
-            Platform.exit();
-        } catch (Exception exitException) {
-            System.err.println(exitException);
-        }
-        
+        Parent root = loader.load();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 }
