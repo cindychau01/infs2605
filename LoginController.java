@@ -17,7 +17,8 @@ import java.net.*;
 public class LoginController implements Initializable {
 
     database database = new database();
-    
+    String username;
+    String pass;
 
     @FXML
     private Pane Loginpage;
@@ -57,8 +58,9 @@ public class LoginController implements Initializable {
     @FXML
     void loginclick(ActionEvent event) {
 
-        String username = user.getText();
-        String pass = password.getText();
+        this.username = user.getText();
+        this.pass = password.getText();
+
         try{
             boolean loginStatus = database.loginQuery(username, pass);
 
@@ -87,6 +89,10 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourcebundle) {
         errorsign.setVisible(false);
         Errormessage.setVisible(false);
+    }
+
+    public String getName() {
+        return this.username;
     }
 
 }
