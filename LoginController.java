@@ -1,5 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -10,7 +12,11 @@ import java.util.concurrent.TimeUnit;
 import java.sql.*;
 import javafx.fxml.Initializable;
 import java.util.*;
+import java.io.IOException;
 import java.net.*;
+import javafx.scene.*;
+import javafx.stage.*;
+
 
 
 
@@ -83,6 +89,22 @@ public class LoginController implements Initializable {
     @FXML
     void signupclick(ActionEvent event) {
 
+        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        FXMLLoader createUser = new FXMLLoader();
+        
+        createusercontroller controller = new createusercontroller();
+
+        createUser.setController(controller);
+        createUser.setLocation(getClass().getResource("createuser.fxml"));
+
+        try{
+            Parent root = createUser.load();
+            nextStage.setScene(new Scene(root));
+            nextStage.show();
+        } catch (IOException e) {
+
+        }
     }
 
     @Override
