@@ -25,7 +25,7 @@ public class database {
         // Create tables
         s.execute("CREATE TABLE IF NOT EXISTS Nutrients"
         + "("
-        + "Nutrient_ID VARCHAR(5) NOT NULL,"
+        + "Nutrient_ID INT NOT NULL,"
         + "Protein FLOAT,"
         + "Carbs FLOAT,"
         + "Fat FLOAT,"
@@ -44,7 +44,7 @@ public class database {
 
         s.execute("CREATE TABLE IF NOT EXISTS Daily_Input"
         + "("
-        + "Daily_ID VARCHAR(5) NOT NULL,"
+        + "Daily_ID INT NOT NULL,"
         + "Day VARCHAR(10),"
         + "Stair_Count INT,"
         + "Step_Count INT,"
@@ -58,7 +58,7 @@ public class database {
 
         s.execute("CREATE TABLE IF NOT EXISTS Activities"
         + "("
-        + "Activity_ID VARCHAR(5) NOT NULL,"
+        + "Activity_ID INT NOT NULL,"
         + "Activity_Type VARCHAR(10),"
         + "Minutes_Trained INT,"
         + "Calories_Burnt INT,"
@@ -71,7 +71,7 @@ public class database {
 
         s.execute("CREATE TABLE IF NOT EXISTS Meals"
         + "("
-        + "Meal_ID VARCHAR(5) NOT NULL,"
+        + "Meal_ID INT NOT NULL,"
         + "Meal_Name INT,"
         + "Calories_Consumed INT,"
         + "Date_Consumed DATE,"
@@ -84,7 +84,7 @@ public class database {
 
         s.execute("CREATE TABLE IF NOT EXISTS Human_Profile"
         + "("
-        + "Profile_ID VARCHAR(5) NOT NULL,"
+        + "Profile_ID INT NOT NULL,"
         + "Age INT,"
         + "Mass FLOAT,"
         + "Height FLOAT,"
@@ -97,7 +97,7 @@ public class database {
 
         s.execute("CREATE TABLE IF NOT EXISTS Medical_History"
         + "("
-        + "Medical_ID VARCHAR(5) NOT NULL,"
+        + "Medical_ID INT NOT NULL,"
         + "Check_Up_Date DATE,"
         + "Comments VARCHAR(500),"
         + "User_ID INT,"
@@ -107,7 +107,7 @@ public class database {
 
         s.execute("CREATE TABLE IF NOT EXISTS Goals"
         + "("
-        + "Goals_ID VARCHAR(5) NOT NULL,"
+        + "Goals_ID INT NOT NULL,"
         + "Weight_Goals FLOAT,"
         + "Nutrient_Goals FLOAT,"
         + "Physical_Activity_Goals FLOAT,"
@@ -118,7 +118,7 @@ public class database {
 
         s.execute("CREATE TABLE IF NOT EXISTS Friends"
         + "("
-        + "Friend_ID VARCHAR(5) NOT NULL,"
+        + "Friend_ID INT NOT NULL,"
         + "User_ID INT NOT NULL,"
         + "PRIMARY KEY (Friend_ID),"
         + "FOREIGN KEY (User_ID) REFERENCES Person(User_ID)"
@@ -136,16 +136,16 @@ public class database {
         Statement s = connection.createStatement();
 
         //ID, Protein, Carbs, Fat,
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N1', '10.5', '27', '2.5');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N2', '15.2', '50.1', '50.5');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N3', '7.6', '23.5', '100.5');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N4', '18.4', '34', '2.3');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N5', '20.1', '19.8', '5.5');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N6', '8.5', '57.9', '24.2');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N7', '11', '21.1', '4.1');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N8', '12.3', '27.5', '3.55');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N9', '3.1', '27.8', '19.5');");
-        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('N10', '31.8', '22', '33.3');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('1', '10.5', '27', '2.5');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('2', '15.2', '50.1', '50.5');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('3', '7.6', '23.5', '100.5');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('4', '18.4', '34', '2.3');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('5', '20.1', '19.8', '5.5');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('6', '8.5', '57.9', '24.2');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('7', '11', '21.1', '4.1');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('8', '12.3', '27.5', '3.55');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('9', '3.1', '27.8', '19.5');");
+        s.execute("INSERT OR REPLACE INTO Nutrients VALUES ('10', '31.8', '22', '33.3');");
 
         //id, username, password, friendid
         s.execute("INSERT OR REPLACE INTO Person VALUES('1', 'nicky951', 'admin', 'f1')");
@@ -160,85 +160,85 @@ public class database {
         s.execute("INSERT OR REPLACE INTO Person VALUES('10', 'lipu', 'curry11', 'f10')");
 
         //dailyid, day, staircount, stepcount, restheartrate, hoursslept, mental wellbeing, userid
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d1', 'Monday', '100', '10000','80' , '3', '3', '1')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d2', 'Tuesday', '200', '12310','80', '4', '4', '1')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d3', 'Wednesday', '300', '9990','80', '5', '5', '1')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d4', 'Thursday', '400', '2500','80', '6', '5', '1')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d5', 'Friday', '500', '1040','80', '7', '5', '1')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d6', 'Saturday', '600', '10193','80', '2', '1', '1')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d7', 'Sunday', '700', '22440','80', '10', '3', '1')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('1', 'Monday', '100', '10000','80' , '3', '3', '1')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('2', 'Tuesday', '200', '12310','80', '4', '4', '1')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('3', 'Wednesday', '300', '9990','80', '5', '5', '1')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('4', 'Thursday', '400', '2500','80', '6', '5', '1')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('5', 'Friday', '500', '1040','80', '7', '5', '1')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('6', 'Saturday', '600', '10193','80', '2', '1', '1')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('7', 'Sunday', '700', '22440','80', '10', '3', '1')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d8', 'Monday', '100', '10000','80', '3', '3', '2')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d9', 'Tuesday', '200', '12310','80', '4', '4', '2')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d10', 'Wednesday', '300', '9990','80', '5', '5', '2')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d11', 'Thursday', '400', '2500','80', '6', '5', '2')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d12', 'Friday', '500', '1040','80', '7', '5', '2')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d13', 'Saturday', '600', '10193','80', '2', '1', '2')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d14', 'Sunday', '700', '22440','80', '10', '3', '2')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('8', 'Monday', '100', '10000','80', '3', '3', '2')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('9', 'Tuesday', '200', '12310','80', '4', '4', '2')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('10', 'Wednesday', '300', '9990','80', '5', '5', '2')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('11', 'Thursday', '400', '2500','80', '6', '5', '2')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('12', 'Friday', '500', '1040','80', '7', '5', '2')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('13', 'Saturday', '600', '10193','80', '2', '1', '2')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('14', 'Sunday', '700', '22440','80', '10', '3', '2')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d15', 'Monday', '100', '10000','80', '3', '3', '3')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d16', 'Tuesday', '200', '12310','80', '4', '4', '3')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d17', 'Wednesday', '300', '9990','80' , '5', '5', '3')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d18', 'Thursday', '400', '2500','80' ,'6', '5', '3')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d19', 'Friday', '500', '1040','80' , '7', '5', '3')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d20', 'Saturday', '600', '10193','80' , '2', '1', '3')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d21', 'Sunday', '700', '22440','80' , '10', '3', '3')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('15', 'Monday', '100', '10000','80', '3', '3', '3')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('16', 'Tuesday', '200', '12310','80', '4', '4', '3')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('17', 'Wednesday', '300', '9990','80' , '5', '5', '3')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('18', 'Thursday', '400', '2500','80' ,'6', '5', '3')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('19', 'Friday', '500', '1040','80' , '7', '5', '3')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('20', 'Saturday', '600', '10193','80' , '2', '1', '3')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('21', 'Sunday', '700', '22440','80' , '10', '3', '3')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d22', 'Monday', '100', '10000','80' , '3', '3', '4')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d23', 'Tuesday', '200', '12310','80' , '4', '4', '4')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d24', 'Wednesday', '300', '9990','80' , '5', '5', '4')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d25', 'Thursday', '400', '2500','80' , '6', '5', '4')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d26', 'Friday', '500', '1040','80' , '7', '5', '4')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d27', 'Saturday', '600', '10193','80' , '2', '1', '4')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d28', 'Sunday', '700', '22440','80' , '10', '3', '4')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('22', 'Monday', '100', '10000','80' , '3', '3', '4')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('23', 'Tuesday', '200', '12310','80' , '4', '4', '4')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('24', 'Wednesday', '300', '9990','80' , '5', '5', '4')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('25', 'Thursday', '400', '2500','80' , '6', '5', '4')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('26', 'Friday', '500', '1040','80' , '7', '5', '4')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('27', 'Saturday', '600', '10193','80' , '2', '1', '4')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('28', 'Sunday', '700', '22440','80' , '10', '3', '4')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d29', 'Monday', '100', '10000','80' , '3', '3', '5')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d30', 'Tuesday', '200', '12310','80' , '4', '4', '5')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d31', 'Wednesday', '300', '9990','80' , '5', '5', '5')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d32', 'Thursday', '400', '2500','80' , '6', '5', '5')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d33', 'Friday', '500', '1040','80' , '7', '5', '5')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d34', 'Saturday', '600', '10193','80' , '2', '1', '5')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d35', 'Sunday', '700', '22440','80' , '10', '3', '5')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('29', 'Monday', '100', '10000','80' , '3', '3', '5')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('30', 'Tuesday', '200', '12310','80' , '4', '4', '5')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('31', 'Wednesday', '300', '9990','80' , '5', '5', '5')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('32', 'Thursday', '400', '2500','80' , '6', '5', '5')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('33', 'Friday', '500', '1040','80' , '7', '5', '5')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('34', 'Saturday', '600', '10193','80' , '2', '1', '5')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('35', 'Sunday', '700', '22440','80' , '10', '3', '5')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d36', 'Monday', '100', '10000','80' , '3', '3', '6')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d37', 'Tuesday', '200', '12310','80' , '4', '4', '6')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d38', 'Wednesday', '300', '9990','80' , '5', '5', '6')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d39', 'Thursday', '400', '2500','80' , '6', '5', '6')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d40', 'Friday', '500', '1040','80' , '7', '5', '6')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d41', 'Saturday', '600', '10193','80' , '2', '1', '6')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d42', 'Sunday', '700', '22440','80' , '10', '3', '6')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('36', 'Monday', '100', '10000','80' , '3', '3', '6')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('37', 'Tuesday', '200', '12310','80' , '4', '4', '6')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('38', 'Wednesday', '300', '9990','80' , '5', '5', '6')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('39', 'Thursday', '400', '2500','80' , '6', '5', '6')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('40', 'Friday', '500', '1040','80' , '7', '5', '6')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('41', 'Saturday', '600', '10193','80' , '2', '1', '6')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('42', 'Sunday', '700', '22440','80' , '10', '3', '6')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d43', 'Monday', '100', '10000','80' , '3', '3', '7')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d44', 'Tuesday', '200', '12310','80' , '4', '4', '7')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d45', 'Wednesday', '300', '9990','80' , '5', '5', '7')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d46', 'Thursday', '400', '2500','80' , '6', '5', '7')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d47', 'Friday', '500', '1040','80' , '7', '5', '7')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d48', 'Saturday', '600', '10193','80' , '2', '1', '7')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d49', 'Sunday', '700', '22440','80' , '10', '3', '7')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('43', 'Monday', '100', '10000','80' , '3', '3', '7')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('44', 'Tuesday', '200', '12310','80' , '4', '4', '7')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('45', 'Wednesday', '300', '9990','80' , '5', '5', '7')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('46', 'Thursday', '400', '2500','80' , '6', '5', '7')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('47', 'Friday', '500', '1040','80' , '7', '5', '7')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('48', 'Saturday', '600', '10193','80' , '2', '1', '7')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('49', 'Sunday', '700', '22440','80' , '10', '3', '7')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d50', 'Monday', '100', '10000','80' , '3', '3', '8')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d51', 'Tuesday', '200', '12310','80' , '4', '4', '8')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d52', 'Wednesday', '300', '9990','80' , '5', '5', '8')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d53', 'Thursday', '400', '2500','80' , '6', '5', '8')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d54', 'Friday', '500', '1040','80' , '7', '5', '8')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d55', 'Saturday', '600', '10193','80' , '2', '1', '8')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d56', 'Sunday', '700', '22440','80' , '10', '3', '8')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('50', 'Monday', '100', '10000','80' , '3', '3', '8')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('51', 'Tuesday', '200', '12310','80' , '4', '4', '8')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('52', 'Wednesday', '300', '9990','80' , '5', '5', '8')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('53', 'Thursday', '400', '2500','80' , '6', '5', '8')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('54', 'Friday', '500', '1040','80' , '7', '5', '8')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('55', 'Saturday', '600', '10193','80' , '2', '1', '8')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('56', 'Sunday', '700', '22440','80' , '10', '3', '8')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d57', 'Monday', '100', '10000','80' , '3', '3', '9')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d58', 'Tuesday', '200', '12310','80' , '4', '4', '9')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d59', 'Wednesday', '300', '9990','80' , '5', '5', '9')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d60', 'Thursday', '400', '2500','80' , '6', '5', '9')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d61', 'Friday', '500', '1040','80' , '7', '5', '9')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d62', 'Saturday', '600', '10193','80' , '2', '1', '9')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d63', 'Sunday', '700', '22440','80' , '10', '3', '9')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('57', 'Monday', '100', '10000','80' , '3', '3', '9')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('58', 'Tuesday', '200', '12310','80' , '4', '4', '9')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('59', 'Wednesday', '300', '9990','80' , '5', '5', '9')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('60', 'Thursday', '400', '2500','80' , '6', '5', '9')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('61', 'Friday', '500', '1040','80' , '7', '5', '9')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('62', 'Saturday', '600', '10193','80' , '2', '1', '9')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('63', 'Sunday', '700', '22440','80' , '10', '3', '9')");
 
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d64', 'Monday', '100', '10000','80' , '3', '3', '10')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d65', 'Tuesday', '200', '12310','80' , '4', '4', '10')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d66', 'Wednesday', '300', '9990','80' , '5', '5', '10')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d67', 'Thursday', '400', '2500','80' , '6', '5', '10')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d68', 'Friday', '500', '1040','80' , '7', '5', '10')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d69', 'Saturday', '600', '10193','80' , '2', '1', '10')");
-        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('d70', 'Sunday', '700', '22440','80' , '10', '3', '10')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('64', 'Monday', '100', '10000','80' , '3', '3', '10')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('65', 'Tuesday', '200', '12310','80' , '4', '4', '10')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('66', 'Wednesday', '300', '9990','80' , '5', '5', '10')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('67', 'Thursday', '400', '2500','80' , '6', '5', '10')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('68', 'Friday', '500', '1040','80' , '7', '5', '10')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('69', 'Saturday', '600', '10193','80' , '2', '1', '10')");
+        s.execute("INSERT OR REPLACE INTO Daily_Input VALUES('70', 'Sunday', '700', '22440','80' , '10', '3', '10')");
        
         
         s.close();
