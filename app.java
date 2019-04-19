@@ -26,7 +26,7 @@ public class app extends Application{
             database.insertDummyData();
             
         } catch (SQLException createTableException) {
-            System.err.println("Error");
+            System.err.println(createTableException);
         }
 
 
