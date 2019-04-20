@@ -22,6 +22,12 @@ public class createusercontroller implements Initializable{
     String cPassword;
     String newFname;
     String newLname;
+    String newAge;
+    String newHeight;
+    String newMass;
+    String newLeanmass;
+    String newFatmass;
+    String newUser_ID;
 
     @FXML
     private Pane createuser;
@@ -54,6 +60,25 @@ public class createusercontroller implements Initializable{
     private Text error;
 
     @FXML
+    private ImageView logo;
+
+    @FXML
+    private TextField age;
+
+    @FXML
+    private TextField height;
+
+    @FXML
+    private TextField mass;
+
+    @FXML
+    private TextField leanmass;
+
+    @FXML
+    private TextField fatmass;
+
+
+    @FXML
     void createuser(ActionEvent event) {
         
         newUser = username.getText();
@@ -61,6 +86,11 @@ public class createusercontroller implements Initializable{
         cPassword = cPass.getText();
         newFname = fName.getText();
         newLname = lName.getText();
+        newAge = age.getText();
+        newHeight = height.getText();
+        newMass = mass.getText();
+        newLeanmass = leanmass.getText();
+        newFatmass = fatmass.getText();
         
         boolean errormsg = false;
 
@@ -96,10 +126,16 @@ public class createusercontroller implements Initializable{
             if(errormsg == false) {
                 try {
                     database.insertQuery("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( '" + newUser + "', '" + newPass + "', '" + newFname + "', '" + newLname + "');");
-                    System.out.println("inserted");
+
+                    newUser_ID = database.checkUserID(newUser);
+
                 } catch (SQLException   a){
                     System.out.println(a);
                 }
+
+                try {
+                    database.insertQuery("INSERT OR REPLACE INTO Human_Profile(Age, Mass, Height, Lean_Mass, Fat_Mass, User_ID) VALUES ( '" + newAge + "', '" + newMass + "', '" + newHeight + "', '" + newLeanmass  + "', '" +  newFatmass + "', '" +  newUser_ID + "');");
+                } catch(SQLException c) {}
             }
         
     }

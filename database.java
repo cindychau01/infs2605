@@ -163,6 +163,9 @@ public class database {
             login = false;   
         }
         
+        s.close();
+        connection.close();
+
         return login;
     }
 
@@ -189,7 +192,28 @@ public class database {
             exists = false;   
         }
 
+        s.close();
+        connection.close();
+
         return exists;
+    }
+
+    public String checkUserID(String username) throws SQLException{
+
+        String useridReturn;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        
+            ResultSet userid = s.executeQuery("SELECT User_ID FROM Person WHERE Username = '" + username + "';");
+            useridReturn = Integer.toString(userid.getInt("User_ID"));
+        
+
+            s.close();
+            connection.close();
+            
+        return useridReturn;
     }
 
 }   

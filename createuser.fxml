@@ -10,23 +10,23 @@
 
 <Pane fx:id="createuser" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="username" layoutX="226.0" layoutY="119.0" prefHeight="29.0" prefWidth="166.0" promptText="Username" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="username" layoutX="85.0" layoutY="119.0" prefHeight="29.0" prefWidth="166.0" promptText="Username" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font></TextField>
-      <TextField fx:id="fName" layoutX="226.0" layoutY="159.0" promptText="First Name" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="fName" layoutX="85.0" layoutY="159.0" promptText="First Name" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font></TextField>
-      <TextField fx:id="lName" layoutX="226.0" layoutY="200.0" promptText="Last Name" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="lName" layoutX="85.0" layoutY="200.0" promptText="Last Name" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font></TextField>
-      <TextField fx:id="pass" layoutX="226.0" layoutY="241.0" promptText="Password" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="pass" layoutX="85.0" layoutY="241.0" promptText="Password" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font></TextField>
-      <TextField fx:id="cPass" layoutX="226.0" layoutY="281.0" prefHeight="29.0" prefWidth="166.0" promptText="Confirm Password" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="cPass" layoutX="85.0" layoutY="281.0" prefHeight="29.0" prefWidth="166.0" promptText="Confirm Password" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font></TextField>
@@ -40,12 +40,12 @@
             <Font name="Avenir Medium" size="24.0" />
          </font>
       </Text>
-      <ImageView fx:id="errorsign" fitHeight="20.0" fitWidth="20.0" layoutX="226.0" layoutY="317.0">
+      <ImageView fx:id="errorsign" fitHeight="20.0" fitWidth="20.0" layoutX="86.0" layoutY="317.0">
          <image>
             <Image url="@Error.png" />
          </image>
       </ImageView>
-      <Text fx:id="error" fill="#cd0d0d" layoutX="251.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User exists or password doesn't match">
+      <Text fx:id="error" fill="#cd0d0d" layoutX="111.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User exists or password doesn't match">
          <font>
             <Font name="Avenir Medium" size="8.0" />
          </font>
@@ -55,5 +55,30 @@
             <Image url="@uFITlogo.png" />
          </image>
       </ImageView>
+      <TextField fx:id="age" layoutX="361.0" layoutY="119.0" prefHeight="29.0" prefWidth="166.0" promptText="Age" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+         <font>
+            <Font name="Avenir Medium" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="height" layoutX="361.0" layoutY="159.0" prefHeight="29.0" prefWidth="166.0" promptText="Height" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+         <font>
+            <Font name="Avenir Medium" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mass" layoutX="361.0" layoutY="200.0" prefHeight="29.0" prefWidth="166.0" promptText="Mass" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+         <font>
+            <Font name="Avenir Medium" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="leanmass" layoutX="361.0" layoutY="241.0" prefHeight="29.0" prefWidth="166.0" promptText="Lean Mass" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+         <font>
+            <Font name="Avenir Medium" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="fatmass" layoutX="361.0" layoutY="281.0" prefHeight="29.0" prefWidth="166.0" promptText=" Fat Mass" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+         <font>
+            <Font name="Avenir Medium" size="13.0" />
+         </font>
+      </TextField>
    </children>
 </Pane>
