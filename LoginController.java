@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
-import java.util.concurrent.TimeUnit;
 import java.sql.*;
 import javafx.fxml.Initializable;
 import java.util.*;

@@ -35,7 +35,9 @@ public class database {
         + "("
         + "User_ID INTEGER PRIMARY KEY,"
         + "Username VARCHAR(20) NOT NULL,"
-        + "Password VARCHAR(20) NOT NULL"
+        + "Password VARCHAR(20) NOT NULL,"
+        + "Fname VARCHAR(20) NOT NULL,"
+        + "Lname VARCHAR(20) NOT NULL"
         + ")");
 
         s.execute("CREATE TABLE IF NOT EXISTS Daily_Input"
@@ -116,9 +118,9 @@ public class database {
 
         Statement s = connection.createStatement();
 
-        s.execute("INSERT OR REPLACE INTO Person(Username, Password) VALUES ( 'nicky951', 'admin');");
-        s.execute("INSERT OR REPLACE INTO Person(Username, Password) VALUES ( 'tonyN', 'admin');");
-        s.execute("INSERT OR REPLACE INTO Person(Username, Password) VALUES ( 'jasenY', 'admin');");
+        s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'nicky951', 'admin', 'Nic', 'Liang');");
+        s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'tonyN', 'admin', 'Tony', 'Nguyen');");
+        s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'jasenY', 'admin', 'Jasen', 'Yu');");
         
         s.close();
         connection.close();
@@ -163,4 +165,31 @@ public class database {
         
         return login;
     }
+
+    public boolean checkUserExists(String newUser) throws SQLException {
+
+        openConnection();
+
+        Statement s = connection.createStatement();
+
+        boolean exists = false;
+
+        String user;
+
+        try {
+            ResultSet checkUser = s.executeQuery("SELECT Username FROM Person WHERE Username = '" + newUser + "';");
+
+            user = checkUser.getString("Username");
+        
+            if(user.equals(newUser)) {
+                exists = true;
+            }
+
+        } catch (SQLException noResult) {
+            exists = false;   
+        }
+
+        return exists;
+    }
+
 }   
