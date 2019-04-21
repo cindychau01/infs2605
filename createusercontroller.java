@@ -131,32 +131,31 @@ public class createusercontroller implements Initializable{
                     database.insertQuery("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( '" + newUser + "', '" + newPass + "', '" + newFname + "', '" + newLname + "');");
 
                     newUser_ID = database.checkUserID(newUser);
-
+                    
                 } catch (SQLException   a){
                     System.out.println(a);
                 }
 
                 try {
                     database.insertQuery("INSERT OR REPLACE INTO Human_Profile(Age, Mass, Height, Lean_Mass, Fat_Mass, User_ID) VALUES ( '" + newAge + "', '" + newMass + "', '" + newHeight + "', '" + newLeanmass  + "', '" +  newFatmass + "', '" +  newUser_ID + "');");
-                } catch(SQLException c) {}
+                } catch (SQLException c) {}
 
-                    Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                    FXMLLoader login = new FXMLLoader();
-            
-                    dashboardcontroller controller = new dashboardcontroller();
+                Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-                    controller.setLoggedInID(newUser_ID);
-            
-                    login.setController(controller);
-                    login.setLocation(getClass().getResource("dashboard.fxml"));
-            
-                    try{
-                        Parent root = login.load();
-                        nextStage.setScene(new Scene(root));
-                        nextStage.show();
-                    } catch (IOException e) {
-            
-                    }
+                FXMLLoader firstMeal = new FXMLLoader();
+                
+                firstmealcontroller controller = new firstmealcontroller();
+                controller.setID(newUser_ID);
+                firstMeal.setController(controller);
+                firstMeal.setLocation(getClass().getResource("createuserfirstmeal.fxml"));
+
+                try{
+                    Parent root = firstMeal.load();
+                    nextStage.setScene(new Scene(root));
+                    nextStage.show();
+                } catch (IOException e) {
+
+                }
             }
         
     }

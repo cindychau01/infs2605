@@ -296,6 +296,9 @@ public class database {
 
         pieProteinValue = Float.toString(proteinVal.getFloat("Protein"));
 
+        s.close();
+        connection.close();
+
         return pieProteinValue;
     }
 
@@ -316,6 +319,9 @@ public class database {
 
 
         pieCarbValue = Float.toString(carbVal.getFloat("Carbs"));
+
+        s.close();
+        connection.close();
 
         return pieCarbValue;
     }
@@ -338,6 +344,29 @@ public class database {
 
         pieFatValue = Float.toString(fatVal.getFloat("Fat"));
 
+        s.close();
+        connection.close();
+
         return pieFatValue;
+    }
+
+    public String returnNutID() throws SQLException {
+
+        String nutID;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet nutVal = s.executeQuery("SELECT Nutrient_ID"
+        + " FROM Nutrients"
+        + " ORDER BY Nutrient_ID DESC LIMIT 1;"
+        );
+
+        nutID = Integer.toString(nutVal.getInt("Nutrient_ID"));
+
+        s.close();
+        connection.close();
+
+        return nutID;
     }
 }   
