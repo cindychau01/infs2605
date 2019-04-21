@@ -91,11 +91,33 @@ public class dashboardcontroller implements Initializable {
     private Text Nutrientbreakdown1;
 
 
+    @FXML
+    private Button signout;
+
     public  void setLoggedInID( String id) {
         this.loggedInID = id;
     }   
 
-   
+    @FXML
+    void signout(ActionEvent event) {
+
+        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader signout = new FXMLLoader();
+
+        LoginController controller = new LoginController();
+        
+        signout.setController(controller);
+        signout.setLocation(getClass().getResource("Login.fxml"));
+
+        try{
+            Parent root = signout.load();
+            nextStage.setScene(new Scene(root));
+            nextStage.show();
+        } catch (IOException e) {
+
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourcebundle) {
@@ -118,7 +140,7 @@ public class dashboardcontroller implements Initializable {
             protein = (database.pieChartProtein(loggedInID));  
             carbs = (database.pieChartCarbs(loggedInID));
             fats = (database. pieChartFats(loggedInID));
-            
+
         } catch (SQLException b) {}
 
         

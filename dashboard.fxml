@@ -97,5 +97,10 @@
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
+      <Button fx:id="signout" layoutX="524.0" layoutY="62.0" mnemonicParsing="false" onAction="#signout" style="-fx-background-color: #33435C; -fx-cursor: HAND;" text="Sign Out" textFill="WHITE">
+         <font>
+            <Font name="Avenir Light" size="8.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
