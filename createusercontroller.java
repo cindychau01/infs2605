@@ -2,16 +2,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
 import java.sql.*;
 import javafx.fxml.Initializable;
 import java.util.*;
+import java.io.IOException;
 import java.net.*;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
-import javafx.scene.control.Button;
+import javafx.scene.*;
+import javafx.stage.*;
 
 public class createusercontroller implements Initializable{
 
@@ -136,6 +139,24 @@ public class createusercontroller implements Initializable{
                 try {
                     database.insertQuery("INSERT OR REPLACE INTO Human_Profile(Age, Mass, Height, Lean_Mass, Fat_Mass, User_ID) VALUES ( '" + newAge + "', '" + newMass + "', '" + newHeight + "', '" + newLeanmass  + "', '" +  newFatmass + "', '" +  newUser_ID + "');");
                 } catch(SQLException c) {}
+
+                    Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    FXMLLoader login = new FXMLLoader();
+            
+                    dashboardcontroller controller = new dashboardcontroller();
+
+                    controller.setLoggedInID(newUser_ID);
+            
+                    login.setController(controller);
+                    login.setLocation(getClass().getResource("dashboard.fxml"));
+            
+                    try{
+                        Parent root = login.load();
+                        nextStage.setScene(new Scene(root));
+                        nextStage.show();
+                    } catch (IOException e) {
+            
+                    }
             }
         
     }

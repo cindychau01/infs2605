@@ -13,7 +13,7 @@
    <children>
       <TextField fx:id="user" alignment="CENTER_RIGHT" layoutX="217.0" layoutY="173.0" promptText="Username" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;" />
       <TextField fx:id="password" alignment="CENTER_RIGHT" layoutX="217.0" layoutY="215.0" promptText="Password" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;" />
-      <Button fx:id="loginbutton" layoutX="252.0" layoutY="301.0" mnemonicParsing="false" onAction="#loginclick" style="-fx-background-color: linear-gradient(to right, #44BBB0, #02B1C7);" text="Log In" textFill="WHITE">
+      <Button fx:id="loginbutton" layoutX="252.0" layoutY="301.0" mnemonicParsing="false" onAction="#loginclick" style="-fx-background-color: linear-gradient(to right, #44BBB0, #02B1C7); -fx-cursor: hand;" text="Log In" textFill="WHITE">
          <font>
             <Font name="Avenir Medium" size="20.0" />
          </font></Button>
@@ -29,7 +29,7 @@
             <Font name="Avenir Medium" size="8.0" />
          </font>
       </Text>
-      <Button fx:id="signup" layoutX="543.0" layoutY="377.0" mnemonicParsing="false" onAction="#signupclick" style="-fx-background-color: #33435C;" text="Sign Up" textFill="WHITE">
+      <Button fx:id="signup" layoutX="543.0" layoutY="377.0" mnemonicParsing="false" onAction="#signupclick" style="-fx-background-color: #33435C; -fx-cursor: hand;" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="8.0" />
          </font>

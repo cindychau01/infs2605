@@ -17,8 +17,6 @@ import javafx.scene.*;
 import javafx.stage.*;
 
 
-
-
 public class LoginController implements Initializable {
 
     database database = new database();
@@ -73,6 +71,26 @@ public class LoginController implements Initializable {
                 System.out.println(username + " logged in");
                 errorsign.setVisible(false);
                 Errormessage.setVisible(false);
+
+                Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                FXMLLoader login = new FXMLLoader();
+        
+                dashboardcontroller controller = new dashboardcontroller();
+                
+                String loggedInID = database.checkUserID(username);
+                controller.setLoggedInID(loggedInID);
+                
+                login.setController(controller);
+                login.setLocation(getClass().getResource("dashboard.fxml"));
+        
+                try{
+                    Parent root = login.load();
+                    nextStage.setScene(new Scene(root));
+                    nextStage.show();
+                } catch (IOException e) {
+        
+                }
+
             } else {
                 System.out.println("failed login");
                 errorsign.setVisible(true);
@@ -82,7 +100,8 @@ public class LoginController implements Initializable {
             System.err.println(loginException);
         }
 
-        
+
+
     }
 
     @FXML

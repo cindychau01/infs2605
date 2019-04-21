@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="Dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="banner" layoutY="-1.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="600.0" style="-fx-background-color: #33435C;" />
+      <ImageView fx:id="logo" fitHeight="80.0" fitWidth="80.0" layoutX="506.0" layoutY="1.0">
+         <image>
+            <Image url="@uFITlogo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Profile" layoutY="83.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Profile" textFill="#464646">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="Meals" layoutY="135.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Meals" textFill="#464646">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="Exercise" layoutY="187.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Exercise" textFill="#464646">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="Goals" layoutY="240.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Goals" textFill="#464646">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="Medical" layoutY="293.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="cursor: hand;" text="Medical" textFill="#464646">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="Dailyinput" layoutY="346.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Daily Input" textFill="#464646">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Button>
+      <Text fx:id="title" fill="WHITE" layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+         <font>
+            <Font name="Avenir Medium" size="24.0" />
+         </font>
+      </Text>
+      <PieChart fx:id="Nutrientbreakdownpie" layoutX="142.0" layoutY="139.0" prefHeight="126.0" prefWidth="180.0" />
+      <Text fx:id="Nutrientbreakdown" fill="#464646" layoutX="147.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Nutrient Breakdown Last Meal">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="Yourgoals" fill="#33435c" layoutX="453.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Goals">
+         <font>
+            <Font name="Avenir Next Heavy" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="Weightgoals" fill="#464646" layoutX="464.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight Goals">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="Stepcount" fill="#464646" layoutX="470.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step Count">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="Nutrientgoals" fill="#464646" layoutX="461.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutrient Goals">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
+         </font>
+      </Text>
+      <Text fx:id="weightgoalresult" fill="#33435c" layoutX="495.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Avenir Medium" size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="nutrientgoalresult" fill="#33435c" layoutX="494.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Avenir Medium" size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="stepcountresult" fill="#33435c" layoutX="494.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font name="Avenir Medium" size="36.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

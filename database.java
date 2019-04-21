@@ -92,7 +92,7 @@ public class database {
         s.execute("CREATE TABLE IF NOT EXISTS Medical_History"
         + "("
         + "Medical_ID INTEGER PRIMARY KEY,"
-        + "Check_Up_Date DATE,"
+        + "Check_Up_Date VARCHAR(20),"
         + "Comments VARCHAR(500),"
         + "User_ID INTEGER,"
         + "FOREIGN KEY (User_ID) REFERENCES Person(User_ID)"
@@ -103,7 +103,7 @@ public class database {
         + "Goals_ID INTEGER PRIMARY KEY,"
         + "Weight_Goals FLOAT,"
         + "Nutrient_Goals FLOAT,"
-        + "Physical_Activity_Goals FLOAT,"
+        + "Steps_Goals FLOAT,"
         + "User_ID INTEGER NOT NULL,"
         + "FOREIGN KEY (User_ID) REFERENCES Person(User_ID)"
         + ")");
@@ -119,8 +119,14 @@ public class database {
         Statement s = connection.createStatement();
 
         s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'nicky951', 'admin', 'Nic', 'Liang');");
-        s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'tonyN', 'admin', 'Tony', 'Nguyen');");
-        s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'jasenY', 'admin', 'Jasen', 'Yu');");
+        s.execute("INSERT OR REPLACE INTO Human_Profile(Age, Mass, Height, Lean_mass, Fat_mass, User_ID) VALUES ( '20', '68', '1.69', '40', '28', '1');");
+        s.execute("INSERT OR REPLACE INTO Daily_Input(Day, Stair_Count, Step_Count, Resting_Heart_Rate, Hours_Slept, Mental_Wellbeing, User_ID) VALUES ( 'Monday', '200', '10000', '67', '6', '2', '1');");
+        s.execute("INSERT OR REPLACE INTO Goals(Weight_Goals, Nutrient_Goals, Steps_Goals, User_ID) VALUES ('65', '2500', '4000', '1');");
+        s.execute("INSERT OR REPLACE INTO Medical_History(Check_Up_Date, Comments, User_ID) VALUES ('01/01/2019', 'None', '1');");
+        s.execute("INSERT OR REPLACE INTO Activities(Activity_Type, Minutes_Trained, Calories_Burnt, Reps, Gym_Attendance, User_ID) VALUES ('Anaerobic', '60', '200', '0', 'Yes', '1');");
+        s.execute("INSERT OR REPLACE INTO Nutrients(Protein, Carbs, Fat) VALUES ('20.5', '400', '40');");
+        s.execute("INSERT OR REPLACE INTO Meals(Meal_Name, Calories_Consumed, Date_Consumed, Nutrient_ID, User_ID) VALUES ('Breakfast', '300', '01/01/2019', '1', '1');");
+        
         
         s.close();
         connection.close();
