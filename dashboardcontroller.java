@@ -16,10 +16,19 @@ import java.io.IOException;
 import java.net.*;
 import javafx.scene.*;
 import javafx.stage.*;
+import javafx.collections.*;
 
 public class dashboardcontroller implements Initializable {
 
+    database database = new database();
     String loggedInID;
+    String weightGoal;
+    String nutrientGoal;
+    String stepCountGoal;
+    String protein;
+    String carbs;
+    String fats;
+    
 
     @FXML
     private Pane Dashboard;
@@ -78,14 +87,55 @@ public class dashboardcontroller implements Initializable {
     @FXML
     private Text stepcountresult;
 
+    @FXML
+    private Text Nutrientbreakdown1;
+
 
     public  void setLoggedInID( String id) {
         this.loggedInID = id;
     }   
 
+   
+
     @Override
     public void initialize(URL url, ResourceBundle resourcebundle) {
-        System.out.println(this.loggedInID);
+
+
+        try {
+            weightGoal = database.returnWeightGoal(loggedInID);
+            weightgoalresult.setText(weightGoal + " KG");
+
+            nutrientGoal = database.returnNutrientGoal(loggedInID);
+            nutrientgoalresult.setText(nutrientGoal + " Cal.");
+
+            stepCountGoal = database.returnStepsGoal(loggedInID);
+            stepcountresult.setText(stepCountGoal + " Steps");
+
+        } catch (SQLException a) {}
+
+        try{
+        
+            protein = (database.pieChartProtein(loggedInID));  
+            carbs = (database.pieChartCarbs(loggedInID));
+            fats = (database. pieChartFats(loggedInID));
+            
+        } catch (SQLException b) {}
+
+        
+        Float fProtein = Float.parseFloat(protein);
+        Float fFat = Float.parseFloat(fats);
+        Float fCarbs = Float.parseFloat(carbs);
+        
+        ObservableList<PieChart.Data> data =
+            FXCollections.observableArrayList(
+                new PieChart.Data("Fats", fFat),
+                new PieChart.Data("Carbs", fCarbs),
+                new PieChart.Data("Protein", fProtein)
+            );
+
+        Nutrientbreakdownpie.setData(data);
+
     }
+
 
 }

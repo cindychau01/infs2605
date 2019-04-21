@@ -51,45 +51,50 @@
             <Font name="Avenir Medium" size="24.0" />
          </font>
       </Text>
-      <PieChart fx:id="Nutrientbreakdownpie" layoutX="142.0" layoutY="139.0" prefHeight="126.0" prefWidth="180.0" />
-      <Text fx:id="Nutrientbreakdown" fill="#464646" layoutX="147.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Nutrient Breakdown Last Meal">
+      <PieChart fx:id="Nutrientbreakdownpie" layoutX="122.0" layoutY="90.0" prefHeight="238.0" prefWidth="303.0" />
+      <Text fx:id="Nutrientbreakdown" fill="#464646" layoutX="225.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Macro Nutrient " textAlignment="CENTER">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Text fx:id="Yourgoals" fill="#33435c" layoutX="453.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Goals">
+      <Text fx:id="Yourgoals" fill="#33435c" layoutX="455.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Goals">
          <font>
             <Font name="Avenir Next Heavy" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="Weightgoals" fill="#464646" layoutX="464.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight Goals">
+      <Text fx:id="Weightgoals" fill="#464646" layoutX="465.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight Goals">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Text fx:id="Stepcount" fill="#464646" layoutX="470.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step Count">
+      <Text fx:id="Stepcount" fill="#464646" layoutX="472.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step Count">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Text fx:id="Nutrientgoals" fill="#464646" layoutX="461.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutrient Goals">
+      <Text fx:id="Nutrientgoals" fill="#464646" layoutX="461.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nutrient Goals">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Text fx:id="weightgoalresult" fill="#33435c" layoutX="495.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text fx:id="weightgoalresult" fill="#33435c" layoutX="426.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="160.37600350379944">
          <font>
-            <Font name="Avenir Medium" size="36.0" />
+            <Font name="Avenir Medium" size="23.0" />
          </font>
       </Text>
-      <Text fx:id="nutrientgoalresult" fill="#33435c" layoutX="494.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text fx:id="nutrientgoalresult" fill="#33435c" layoutX="426.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="160.37600350379944">
          <font>
-            <Font name="Avenir Medium" size="36.0" />
+            <Font name="Avenir Medium" size="23.0" />
          </font>
       </Text>
-      <Text fx:id="stepcountresult" fill="#33435c" layoutX="494.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text fx:id="stepcountresult" fill="#33435c" layoutX="426.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="160.37600350379944">
          <font>
-            <Font name="Avenir Medium" size="36.0" />
+            <Font name="Avenir Medium" size="23.0" />
+         </font>
+      </Text>
+      <Text fx:id="Nutrientbreakdown1" fill="#464646" layoutX="197.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Break Down of Last Meal" textAlignment="CENTER">
+         <font>
+            <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
    </children>
