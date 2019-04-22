@@ -57,7 +57,8 @@ public class database {
         s.execute("CREATE TABLE IF NOT EXISTS Activities"
         + "("
         + "Activity_ID INTEGER PRIMARY KEY,"
-        + "Activity_Type VARCHAR(10),"
+        + "Activity_Type VARCHAR(20),"
+        + "Activity_Description VARCHAR(100),"
         + "Minutes_Trained INTEGER,"
         + "Calories_Burnt INTEGER,"
         + "Reps INTEGER,"
@@ -124,7 +125,7 @@ public class database {
         s.execute("INSERT OR REPLACE INTO Daily_Input(Day, Stair_Count, Step_Count, Resting_Heart_Rate, Hours_Slept, Mental_Wellbeing, User_ID) VALUES ( 'Monday', '200', '10000', '67', '6', '2', '1');");
         s.execute("INSERT OR REPLACE INTO Goals(Weight_Goals, Nutrient_Goals, Steps_Goals, User_ID) VALUES ('65', '2500', '4000', '1');");
         s.execute("INSERT OR REPLACE INTO Medical_History(Check_Up_Date, Comments, User_ID) VALUES ('2019-01-01', 'None', '1');");
-        s.execute("INSERT OR REPLACE INTO Activities(Activity_Type, Minutes_Trained, Calories_Burnt, Reps, Gym_Attendance, User_ID) VALUES ('Anaerobic', '60', '200', '0', 'Yes', '1');");
+        s.execute("INSERT OR REPLACE INTO Activities(Activity_Type, Activity_Description, Minutes_Trained, Calories_Burnt, Reps, Gym_Attendance, User_ID) VALUES ('Anaerobic','Squats', '60', '200', '0', 'Yes', '1');");
         s.execute("INSERT OR REPLACE INTO Nutrients(Protein, Carbs, Fat) VALUES ('20.5', '400', '40');");
         s.execute("INSERT OR REPLACE INTO Nutrients(Protein, Carbs, Fat) VALUES ('112', '150', '50');");
         s.execute("INSERT OR REPLACE INTO Meals(Meal_Name, Calories_Consumed, Date_Consumed, Nutrient_ID, User_ID) VALUES ('Breakfast', '300', '2019-01-01', '1', '1');");
@@ -447,5 +448,61 @@ public class database {
         connection.close();
 
         return returnSum;
+    }
+
+    public int returnCount(String id, String activity) throws SQLException {
+
+        int returnVal;
+
+        openConnection();
+        Statement s = connection.createStatement();
+        
+        ResultSet value = s.executeQuery("SELECT  COUNT(*) FROM Activities WHERE Activity_Type = '" + activity + "' AND User_ID = " + id);
+
+        returnVal = value.getInt("COUNT(*)");
+
+        s.close();
+        connection.close();
+
+        return returnVal;
+    }
+
+    public ArrayList returnActivityID(String id) throws SQLException {
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet values = s.executeQuery("SELECT Activity_ID FROM Activities WHERE User_ID =" + id);
+
+        while(values.next()) {
+            list.add(values.getInt("Activity_ID"));
+        }
+
+        s.close();
+        connection.close();
+
+        return list;
+    }
+
+
+    public ArrayList returnMinutes(String id) throws SQLException {
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet values = s.executeQuery("SELECT Minutes_Trained FROM Activities WHERE User_ID =" + id);
+
+        while(values.next()) {
+            list.add(values.getInt("Minutes_Trained"));
+        }
+
+        s.close();
+        connection.close();
+
+        return list;
     }
 }   
