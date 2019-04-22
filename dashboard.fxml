@@ -16,7 +16,7 @@
             <Image url="@uFITlogo.png" />
          </image>
       </ImageView>
-      <Button fx:id="Profile" layoutY="83.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Profile" textFill="#464646">
+      <Button fx:id="Profile" layoutY="83.0" mnemonicParsing="false" onAction="#toprofile" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Profile" textFill="#464646">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
@@ -36,7 +36,7 @@
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="Medical" layoutY="293.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="cursor: hand;" text="Medical" textFill="#464646">
+      <Button fx:id="Medical" layoutY="293.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Medical" textFill="#464646">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>

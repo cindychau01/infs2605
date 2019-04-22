@@ -118,6 +118,27 @@ public class dashboardcontroller implements Initializable {
         }
     }
 
+    @FXML
+    void toprofile(ActionEvent event) {
+        
+        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader toProfile = new FXMLLoader();
+
+        myprofilecontroller controller = new myprofilecontroller();
+        
+        controller.setLoggedInID(loggedInID);
+
+        toProfile.setController(controller);
+        toProfile.setLocation(getClass().getResource("userprofile.fxml"));
+
+        try{
+            Parent root = toProfile.load();
+            nextStage.setScene(new Scene(root));
+            nextStage.show();
+        } catch (IOException e) {
+
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourcebundle) {

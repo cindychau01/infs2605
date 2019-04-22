@@ -10,7 +10,8 @@ public class database {
         try {
             // connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/WildSnaill/Desktop/INFS2605/app.db");
             // connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/Qibinyu/Desktop/INFS2605s/app.db");
-            connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/nicholasliang/Desktop/2605/app.db");
+            //connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/nicholasliang/Desktop/2605/app.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:app.db");
         } catch (SQLException failedConnection) {
             System.err.println(failedConnection);
         }
@@ -126,8 +127,8 @@ public class database {
         s.execute("INSERT OR REPLACE INTO Activities(Activity_Type, Minutes_Trained, Calories_Burnt, Reps, Gym_Attendance, User_ID) VALUES ('Anaerobic', '60', '200', '0', 'Yes', '1');");
         s.execute("INSERT OR REPLACE INTO Nutrients(Protein, Carbs, Fat) VALUES ('20.5', '400', '40');");
         s.execute("INSERT OR REPLACE INTO Nutrients(Protein, Carbs, Fat) VALUES ('112', '150', '50');");
-        s.execute("INSERT OR REPLACE INTO Meals(Meal_Name, Calories_Consumed, Date_Consumed, Nutrient_ID, User_ID) VALUES ('Breakfast', '300', '01/01/2019', '1', '1');");
-        s.execute("INSERT OR REPLACE INTO Meals(Meal_Name, Calories_Consumed, Date_Consumed, Nutrient_ID, User_ID) VALUES ('Lunch', '1500', '01/01/2019', '2', '1');");
+        s.execute("INSERT OR REPLACE INTO Meals(Meal_Name, Calories_Consumed, Date_Consumed, Nutrient_ID, User_ID) VALUES ('Breakfast', '300', '01-01/-2019', '1', '1');");
+        s.execute("INSERT OR REPLACE INTO Meals(Meal_Name, Calories_Consumed, Date_Consumed, Nutrient_ID, User_ID) VALUES ('Lunch', '1500', '01-01-2019', '2', '1');");
         
         
         s.close();
