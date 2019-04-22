@@ -140,6 +140,46 @@ public class dashboardcontroller implements Initializable {
         }
     }
 
+    @FXML
+    void toexercise(ActionEvent event) {
+
+    }
+
+    @FXML
+    void togoals(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toinput(ActionEvent event) {
+
+    }
+
+    @FXML
+    void tomeal(ActionEvent event) {
+
+        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader meal = new FXMLLoader();
+
+        mealcontroller controller  = new mealcontroller();
+        controller.setLoggedInID(loggedInID);
+        meal.setController(controller);
+        meal.setLocation(getClass().getResource("meal.fxml"));
+
+        try{
+            Parent root = meal.load();
+            nextStage.setScene(new Scene(root));
+            nextStage.show();
+        } catch (IOException e) {
+
+        }
+    }
+
+    @FXML
+    void tomedical(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourcebundle) {
 

@@ -21,27 +21,27 @@
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="Meals" layoutY="135.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Meals" textFill="#464646">
+      <Button fx:id="Meals" layoutY="135.0" mnemonicParsing="false" onAction="#tomeal" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Meals" textFill="#464646">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="Exercise" layoutY="187.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Exercise" textFill="#464646">
+      <Button fx:id="Exercise" layoutY="187.0" mnemonicParsing="false" onAction="#toexercise" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Exercise" textFill="#464646">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="Goals" layoutY="240.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Goals" textFill="#464646">
+      <Button fx:id="Goals" layoutY="240.0" mnemonicParsing="false" onAction="#togoals" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Goals" textFill="#464646">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="Medical" layoutY="293.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Medical" textFill="#464646">
+      <Button fx:id="Medical" layoutY="293.0" mnemonicParsing="false" onAction="#tomedical" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Medical" textFill="#464646">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="Dailyinput" layoutY="346.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Daily Input" textFill="#464646">
+      <Button fx:id="Dailyinput" layoutY="346.0" mnemonicParsing="false" onAction="#toinput" prefHeight="54.0" prefWidth="118.0" style="-fx-cursor: hand;" text="Daily Input" textFill="#464646">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>

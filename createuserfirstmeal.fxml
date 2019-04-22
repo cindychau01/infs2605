@@ -46,7 +46,7 @@
             <Font name="Avenir Medium" size="13.0" />
          </font>
       </TextField>
-      <TextField fx:id="Date" layoutX="217.0" layoutY="325.0" prefHeight="29.0" prefWidth="166.0" promptText="Date (dd-mm-yyyy)" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="Date" layoutX="217.0" layoutY="325.0" prefHeight="29.0" prefWidth="166.0" promptText="Date (yyyy-mm-dd)" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font>

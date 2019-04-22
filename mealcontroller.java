@@ -17,22 +17,26 @@ import java.net.*;
 import javafx.scene.*;
 import javafx.stage.*;
 import javafx.collections.*;
+import javafx.scene.control.DatePicker;
 
-public class myprofilecontroller implements Initializable {
+public class mealcontroller implements Initializable {
 
     database database = new database();
+
     String loggedInID;
-    String Age;
-    String Height;
-    String Mass;
-    String Fatmass;
-    String Leanmass;
+    String meal;
+    String calories;
+    String carbs;
+    String protein;
+    String fats;
+    String date;
+    String nutID;
+    Float totalP;
+    Float totalC;
+    Float totalF;
 
     @FXML
     private Button banner;
-
-    @FXML
-    private ImageView logo;
 
     @FXML
     private Button Dashboard;
@@ -41,67 +45,85 @@ public class myprofilecontroller implements Initializable {
     private Text title;
 
     @FXML
+    private ImageView logo;
+
+    @FXML
     private Button signout;
 
     @FXML
-    private ImageView personicon;
+    private TextField Mealname;
 
     @FXML
-    private Text age;
+    private TextField Calories;
 
     @FXML
-    private Text fatmass;
+    private DatePicker Date;
 
     @FXML
-    private Text leanmass;
+    private TextField Protein;
 
     @FXML
-    private Text height;
+    private TextField Fats;
 
     @FXML
-    private Text mass;
+    private TextField Carbs;
 
     @FXML
-    private Text Profileage;
+    private Button add;
 
     @FXML
-    private Text Profilemass;
+    private Button chart;
 
     @FXML
-    private Text Profileheight;
+    private PieChart sumchart;
 
     @FXML
-    private Text Profileleanmass;
+    private Text msg;
 
-    @FXML
-    private Text Profilefatmass;
-
-    @FXML
-    private Button edit;
-
-    
-    public  void setLoggedInID( String id) {
+    public void setLoggedInID( String id) {
         this.loggedInID = id;
     }   
 
     @FXML
-    void edit(ActionEvent event) {
+    void add(ActionEvent event) {
+
+        this.meal = Mealname.getText();
+        this.calories = Calories.getText();
+        this.carbs = Carbs.getText();
+        this.protein = Protein.getText();
+        this.fats = Fats.getText();
+        this.date = Date.getValue().toString();
+
+        try {
+            database.insertQuery("INSERT INTO Nutrients(Protein, Carbs, Fat) VALUES ('" + protein + "', '" + carbs + "', '" + fats + "');");
+
+            nutID = database.returnNutID();
+
+            database.insertQuery("INSERT INTO Meals (Meal_Name, Calories_Consumed, Date_Consumed, Nutrient_ID, User_ID) VALUES ('" + meal + "', '" + calories + "', '" + date + "', '" + nutID + "', '" + loggedInID + "');");
+              
+        } catch (SQLException a) {}
+    }
+
+
+    @FXML
+    void chart(ActionEvent event) {
+
+        try {
+            totalP = database.sumNutrient("Protein");
+            totalF = database.sumNutrient("Fat");
+            totalC = database.sumNutrient("Carbs");
+        } catch (SQLException b) {}
+
+        ObservableList<PieChart.Data> data =
+        FXCollections.observableArrayList(
+            new PieChart.Data("Fats", totalF),
+            new PieChart.Data("Carbs", totalC),
+            new PieChart.Data("Protein", totalP)
+        );
         
-        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        FXMLLoader editProfile = new FXMLLoader();
-
-        editusercontroller controller = new editusercontroller();
-        controller.setLoggedInID(loggedInID);
-        editProfile.setController(controller);
-        editProfile.setLocation(getClass().getResource("edituser.fxml"));
-
-        try{
-            Parent root = editProfile.load();
-            nextStage.setScene(new Scene(root));
-            nextStage.show();
-        } catch (IOException e) {
-
-        }
+        sumchart.setData(data);
+        sumchart.setVisible(true);
+        msg.setVisible(true);
     }
 
     @FXML
@@ -143,26 +165,11 @@ public class myprofilecontroller implements Initializable {
         } catch (IOException e) {
 
         }
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourcebundle) {
-        try{
-            this.Age = database.selectAge(loggedInID, "Age");
-            this.Height = database.selectQuery(loggedInID, "Height");
-            this.Mass = database.selectQuery(loggedInID, "Mass");
-            this.Fatmass = database.selectQuery(loggedInID, "Fat_Mass");
-            this.Leanmass = database.selectQuery(loggedInID, "Lean_Mass");
-        } catch (SQLException a) {}
-
-        age.setText(Age);
-        fatmass.setText(Fatmass);
-        leanmass.setText(Leanmass);
-        height.setText(Height);
-        mass.setText(Mass);
-        
+        sumchart.setVisible(false);
+        msg.setVisible(false);
     }
-
-    
 }

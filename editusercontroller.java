@@ -48,22 +48,7 @@ public class editusercontroller implements Initializable {
 
     @FXML
     private Button Dashboard;
-
-    @FXML
-    private Button Meals;
-
-    @FXML
-    private Button Exercise;
-
-    @FXML
-    private Button Goals;
-
-    @FXML
-    private Button Medical;
-
-    @FXML
-    private Button Dailyinput;
-
+   
     @FXML
     private TextField mass;
 
