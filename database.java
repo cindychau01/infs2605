@@ -123,7 +123,7 @@ public class database {
 
         s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'nicky951', 'admin', 'Nic', 'Liang');");
         s.execute("INSERT OR REPLACE INTO Human_Profile(Age, Mass, Height, Lean_mass, Fat_mass, User_ID) VALUES ( '20', '68', '1.69', '40', '28', '1');");
-        s.execute("INSERT OR REPLACE INTO Daily_Input(Day, Stair_Count, Step_Count, Resting_Heart_Rate, Hours_Slept, Mental_Wellbeing, Overall, User_ID) VALUES ( 'Monday', '200', '10000', '67', '6', '2', '1', '1');");
+        s.execute("INSERT OR REPLACE INTO Daily_Input(Day, Stair_Count, Step_Count, Resting_Heart_Rate, Hours_Slept, Mental_Wellbeing, Overall, User_ID) VALUES ( 'Monday', '200', '100', '67', '6', '2', '1', '1');");
         s.execute("INSERT OR REPLACE INTO Goals(Weight_Goals, Nutrient_Goals, Steps_Goals, User_ID) VALUES ('65', '2500', '4000', '1');");
         s.execute("INSERT OR REPLACE INTO Medical_History(Check_Up_Date, Comments, User_ID) VALUES ('2019-01-01', 'None', '1');");
         s.execute("INSERT OR REPLACE INTO Activities(Activity_Type, Activity_Description, Minutes_Trained, Calories_Burnt, Reps, Gym_Attendance, User_ID) VALUES ('Anaerobic','Squats', '60', '200', '0', 'Yes', '1');");
@@ -561,5 +561,94 @@ public class database {
         connection.close();
 
         return list;
+    }
+
+public Float returnMassGoal(String id) throws SQLException {
+
+        Float returnVal;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet value = s.executeQuery("SELECT Mass FROM Human_Profile WHERE User_ID = " + id + " ORDER BY MASS DESC LIMIT 1;");
+
+        returnVal = value.getFloat("Mass");
+
+        s.close();
+        connection.close();
+
+        return returnVal;
+    }
+
+    public Integer returnStepGoal(String id) throws SQLException {
+
+        int returnVal;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet value = s.executeQuery("SELECT Step_Count FROM Daily_Input WHERE User_ID = " + id + " ORDER BY Step_Count DESC LIMIT 1;");
+
+        returnVal = value.getInt("Step_Count");
+
+        s.close();
+        connection.close();
+        
+        return returnVal;
+    }
+
+    public void updateMassGoal(String id, String value) throws SQLException{
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        s.execute("UPDATE Goals SET Weight_Goals = '" + value + "' WHERE User_ID = " + id + ";");
+
+        s.close();
+        connection.close();
+
+    }
+
+
+    public void updateStepGoal(String id, String value) throws SQLException {
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        s.execute("UPDATE Goals SET Steps_Goals = '" + value + "' WHERE User_ID = " + id + ";");
+
+        s.close();
+        connection.close();
+
+    }
+
+
+    public void updateCarbGoal(String id, String value) throws SQLException{
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        s.execute("UPDATE Goals SET Nutrient_Goals = '" + value + "' WHERE User_ID = " + id + ";");
+
+        s.close();
+        connection.close();
+
+    }
+
+    public float returnHeight(String id) throws SQLException {
+
+        Float returnVal;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet value = s.executeQuery("SELECT Height FROM Human_Profile WHERE User_ID = " + id + " ORDER BY Height DESC LIMIT 1;");
+
+        returnVal = value.getFloat("Height");
+
+        s.close();
+        connection.close();
+
+        return returnVal;
     }
 }   

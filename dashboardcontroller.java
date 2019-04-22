@@ -165,6 +165,22 @@ public class dashboardcontroller implements Initializable {
     @FXML
     void togoals(ActionEvent event) {
 
+        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader goal = new FXMLLoader();
+
+        goalcontroller controller  = new goalcontroller();
+        controller.setLoggedInID(loggedInID);
+        goal.setController(controller);
+        goal.setLocation(getClass().getResource("goals.fxml"));
+
+        try{
+            Parent root = goal.load();
+            nextStage.setScene(new Scene(root));
+            nextStage.show();
+        } catch (IOException e) {
+
+        }
+
     }
 
     @FXML
