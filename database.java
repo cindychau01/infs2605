@@ -370,4 +370,65 @@ public class database {
 
         return nutID;
     }
+
+    public String selectQuery(String loggedInID, String conditionReturn) throws SQLException {
+
+        String returnValue;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet value = s.executeQuery("SELECT " + conditionReturn + " FROM Human_Profile WHERE User_ID = " + loggedInID);
+
+        returnValue = Float.toString(value.getFloat(conditionReturn));
+
+        s.close();
+        connection.close();
+
+        return returnValue;
+    }
+
+    public String selectAge(String loggedInID, String conditionReturn) throws SQLException {
+
+        String returnValue;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet value = s.executeQuery("SELECT " + conditionReturn + " FROM Human_Profile WHERE User_ID = " + loggedInID);
+
+        returnValue = Integer.toString(value.getInt(conditionReturn));
+
+        s.close();
+        connection.close();
+
+        return returnValue;
+    }
+
+    public int returnAgeInt(String loggedInID, String conditionReturn) throws SQLException {
+        int returnValue;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet value = s.executeQuery("SELECT " + conditionReturn + " FROM Human_Profile WHERE User_ID = " + loggedInID);
+
+        returnValue = value.getInt(conditionReturn);
+
+        s.close();
+        connection.close();
+
+        return returnValue;
+    }
+
+    public void updateProfile(String column, String value, String condition) throws SQLException {
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        s.execute("UPDATE Human_Profile SET " + column + " = '" + value + "' WHERE User_ID = " + condition + ";");
+
+        s.close();
+        connection.close();
+    }
 }   

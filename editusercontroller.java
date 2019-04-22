@@ -1,3 +1,5 @@
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.event.ActionEvent;
@@ -18,7 +20,7 @@ import javafx.scene.*;
 import javafx.stage.*;
 import javafx.collections.*;
 
-public class myprofilecontroller implements Initializable {
+public class editusercontroller implements Initializable {
 
     database database = new database();
     String loggedInID;
@@ -28,11 +30,21 @@ public class myprofilecontroller implements Initializable {
     String Fatmass;
     String Leanmass;
 
+
     @FXML
     private Button banner;
 
     @FXML
+    private Text title;
+
+    @FXML
     private ImageView logo;
+
+    @FXML
+    private Button signout;
+
+    @FXML
+    private Spinner agespinner;
 
     @FXML
     private Button Dashboard;
@@ -53,70 +65,62 @@ public class myprofilecontroller implements Initializable {
     private Button Dailyinput;
 
     @FXML
-    private Text title;
+    private TextField mass;
 
     @FXML
-    private Button signout;
+    private TextField height;
 
     @FXML
-    private ImageView personicon;
+    private TextField fatmass;
 
     @FXML
-    private Text age;
+    private TextField leanmass;
 
     @FXML
-    private Text fatmass;
+    private Button confirm;
 
-    @FXML
-    private Text leanmass;
-
-    @FXML
-    private Text height;
-
-    @FXML
-    private Text mass;
-
-    @FXML
-    private Text Profileage;
-
-    @FXML
-    private Text Profilemass;
-
-    @FXML
-    private Text Profileheight;
-
-    @FXML
-    private Text Profileleanmass;
-
-    @FXML
-    private Text Profilefatmass;
-
-    @FXML
-    private Button edit;
-
-    
     public  void setLoggedInID( String id) {
         this.loggedInID = id;
     }   
 
     @FXML
-    void edit(ActionEvent event) {
+    void confirm(ActionEvent event) {
+
+        Age = agespinner.getValue().toString();
+        Mass = mass.getText();
+        Height = height.getText();
+        Fatmass = fatmass.getText();
+        Leanmass = leanmass.getText();
+
+        
+        try { 
+            database.updateProfile("Age", Age, loggedInID);
+            database.updateProfile("Mass", Mass, loggedInID);
+            database.updateProfile("Height", Height, loggedInID);
+            database.updateProfile("Lean_Mass", Leanmass, loggedInID);
+            database.updateProfile("Fat_Mass", Fatmass, loggedInID);
+        } catch (SQLException z) {}    
+        
         
         Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        FXMLLoader editProfile = new FXMLLoader();
+        FXMLLoader toProfile = new FXMLLoader();
 
-        editusercontroller controller = new editusercontroller();
+        myprofilecontroller controller = new myprofilecontroller();
+        
         controller.setLoggedInID(loggedInID);
-        editProfile.setController(controller);
-        editProfile.setLocation(getClass().getResource("edituser.fxml"));
+
+        toProfile.setController(controller);
+        toProfile.setLocation(getClass().getResource("userprofile.fxml"));
 
         try{
-            Parent root = editProfile.load();
+            Parent root = toProfile.load();
             nextStage.setScene(new Scene(root));
             nextStage.show();
         } catch (IOException e) {
 
         }
+        
+        
     }
 
     @FXML
@@ -158,7 +162,7 @@ public class myprofilecontroller implements Initializable {
         } catch (IOException e) {
 
         }
-
+        
     }
 
     @Override
@@ -171,13 +175,15 @@ public class myprofilecontroller implements Initializable {
             this.Leanmass = database.selectQuery(loggedInID, "Lean_Mass");
         } catch (SQLException a) {}
 
-        age.setText(Age);
+        mass.setText(Mass);
+        height.setText(Height);
         fatmass.setText(Fatmass);
         leanmass.setText(Leanmass);
-        height.setText(Height);
-        mass.setText(Mass);
-        
-    }
 
-    
+        try {
+            SpinnerValueFactory<Integer> ageValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,150, database.returnAgeInt(loggedInID, "Age"));
+            agespinner.setValueFactory(ageValueFactory);
+        } catch (SQLException b) {}
+
+    }
 }
