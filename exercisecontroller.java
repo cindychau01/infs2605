@@ -23,8 +23,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.ChoiceBox;
 
-
-
 public class exercisecontroller implements Initializable {
 
     database database = new database();
@@ -202,6 +200,7 @@ public class exercisecontroller implements Initializable {
             "Yes", "No"
         ));
 
+        /*
         try{
             countR = database.returnCount(loggedInID, "Resistance");
             countA = database.returnCount(loggedInID, "Aerobic");
@@ -215,7 +214,7 @@ public class exercisecontroller implements Initializable {
             );
 
         chartavr.setData(data);
-        chartavr.setVisible(true);
+        chartavr.setVisible(false);
         
         try {
             idList = database.returnActivityID(loggedInID);
@@ -232,6 +231,6 @@ public class exercisecontroller implements Initializable {
         linegraph.setVisible(false);
        
 
-
+        */
     }
 }

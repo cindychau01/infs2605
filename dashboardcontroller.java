@@ -170,6 +170,21 @@ public class dashboardcontroller implements Initializable {
     @FXML
     void toinput(ActionEvent event) {
 
+        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader daily = new FXMLLoader();
+
+        dailycontroller controller  = new dailycontroller();
+        controller.setLoggedInID(loggedInID);
+        daily.setController(controller);
+        daily.setLocation(getClass().getResource("daily.fxml"));
+
+        try{
+            Parent root = daily.load();
+            nextStage.setScene(new Scene(root));
+            nextStage.show();
+        } catch (IOException e) {
+
+        }
     }
 
     @FXML

@@ -50,6 +50,7 @@ public class database {
         + "Resting_Heart_Rate FLOAT,"
         + "Hours_Slept INTEGER,"
         + "Mental_Wellbeing INTEGER,"
+        + "Overall INTEGER,"
         + "User_ID INTEGER NOT NULL,"
         + "FOREIGN KEY (User_ID) REFERENCES Person(User_ID)"
         + ")");
@@ -122,7 +123,7 @@ public class database {
 
         s.execute("INSERT OR REPLACE INTO Person(Username, Password, Fname, Lname) VALUES ( 'nicky951', 'admin', 'Nic', 'Liang');");
         s.execute("INSERT OR REPLACE INTO Human_Profile(Age, Mass, Height, Lean_mass, Fat_mass, User_ID) VALUES ( '20', '68', '1.69', '40', '28', '1');");
-        s.execute("INSERT OR REPLACE INTO Daily_Input(Day, Stair_Count, Step_Count, Resting_Heart_Rate, Hours_Slept, Mental_Wellbeing, User_ID) VALUES ( 'Monday', '200', '10000', '67', '6', '2', '1');");
+        s.execute("INSERT OR REPLACE INTO Daily_Input(Day, Stair_Count, Step_Count, Resting_Heart_Rate, Hours_Slept, Mental_Wellbeing, Overall, User_ID) VALUES ( 'Monday', '200', '10000', '67', '6', '2', '1', '1');");
         s.execute("INSERT OR REPLACE INTO Goals(Weight_Goals, Nutrient_Goals, Steps_Goals, User_ID) VALUES ('65', '2500', '4000', '1');");
         s.execute("INSERT OR REPLACE INTO Medical_History(Check_Up_Date, Comments, User_ID) VALUES ('2019-01-01', 'None', '1');");
         s.execute("INSERT OR REPLACE INTO Activities(Activity_Type, Activity_Description, Minutes_Trained, Calories_Burnt, Reps, Gym_Attendance, User_ID) VALUES ('Anaerobic','Squats', '60', '200', '0', 'Yes', '1');");
@@ -498,6 +499,62 @@ public class database {
 
         while(values.next()) {
             list.add(values.getInt("Minutes_Trained"));
+        }
+
+        s.close();
+        connection.close();
+
+        return list;
+    }
+
+    public Integer sumColumnDaily(String column, String rating, String id) throws SQLException {
+
+        Integer returnSum;
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet value = s.executeQuery("SELECT COUNT(*) FROM Daily_Input WHERE " +  column + " = " + rating + " AND User_ID = " + id);
+
+        returnSum = value.getInt("COUNT(*)");
+
+        s.close();
+        connection.close();
+
+        return returnSum;
+    }
+
+    public ArrayList returnDailyID(String id) throws SQLException {
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet values = s.executeQuery("SELECT Daily_ID FROM Daily_Input WHERE User_ID =" + id);
+
+        while(values.next()) {
+            list.add(values.getInt("Daily_ID"));
+        }
+
+        s.close();
+        connection.close();
+
+        return list;
+    }
+
+
+    public ArrayList returnRating(String id) throws SQLException {
+
+        ArrayList<Integer> list = new ArrayList<Integer>();
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        ResultSet values = s.executeQuery("SELECT Overall FROM Daily_Input WHERE User_ID =" + id);
+
+        while(values.next()) {
+            list.add(values.getInt("Overall"));
         }
 
         s.close();

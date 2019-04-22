@@ -169,7 +169,6 @@ public class mealcontroller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourcebundle) {
-        sumchart.setVisible(false);
         msg.setVisible(false);
     }
 }
