@@ -31,12 +31,12 @@
             <Font name="Avenir Medium" size="13.0" />
          </font>
       </TextField>
-      <TextField fx:id="Protein" layoutX="217.0" layoutY="233.0" prefHeight="29.0" prefWidth="166.0" promptText="Protein in g's" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="Carbs" layoutX="217.0" layoutY="186.0" prefHeight="29.0" prefWidth="166.0" promptText="Carbs in g's" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font>
       </TextField>
-      <TextField fx:id="Carbs" layoutX="217.0" layoutY="186.0" prefHeight="29.0" prefWidth="166.0" promptText="Carbs in g's" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
+      <TextField fx:id="Protein" layoutX="217.0" layoutY="233.0" prefHeight="29.0" prefWidth="166.0" promptText="Protein in g's" style="-fx-background-color: #33435C; -fx-text-fill: WHITE;">
          <font>
             <Font name="Avenir Medium" size="13.0" />
          </font>

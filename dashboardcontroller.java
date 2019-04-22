@@ -226,6 +226,22 @@ public class dashboardcontroller implements Initializable {
     @FXML
     void tomedical(ActionEvent event) {
 
+        Stage nextStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader med = new FXMLLoader();
+
+        medicalcontroller controller  = new medicalcontroller();
+        controller.setLoggedInID(loggedInID);
+        med.setController(controller);
+        med.setLocation(getClass().getResource("medical.fxml"));
+
+        try{
+            Parent root = med.load();
+            nextStage.setScene(new Scene(root));
+            nextStage.show();
+        } catch (IOException e) {
+
+        }
+
     }
 
     @Override

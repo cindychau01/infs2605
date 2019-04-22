@@ -651,4 +651,15 @@ public Float returnMassGoal(String id) throws SQLException {
 
         return returnVal;
     }
+
+    public void insertMed(String date, String comment, String id) throws SQLException {
+        
+        openConnection();
+        Statement s = connection.createStatement();
+
+        s.execute("INSERT INTO Medical_History(Check_Up_Date, Comments, User_ID) VALUES ('" + date + "', '" + comment + "', '" + id + "');");
+
+        s.close();
+        connection.close();
+    }
 }   

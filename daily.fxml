@@ -63,7 +63,7 @@
             <Font name="Avenir Medium" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="Generateline" layoutX="424.0" layoutY="200.0" mnemonicParsing="false" onAction="#genline" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(to right, #44BBB0, #02B1C7); -fx-cursor: hand;" text="Graph Overall" textFill="WHITE">
+      <Button fx:id="Generateline" layoutX="424.0" layoutY="222.0" mnemonicParsing="false" onAction="#genline" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(to right, #44BBB0, #02B1C7); -fx-cursor: hand;" text="Graph Overall" textFill="WHITE">
          <font>
             <Font name="Avenir Medium" size="14.0" />
          </font>
