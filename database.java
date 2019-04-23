@@ -8,9 +8,7 @@ public class database {
 
     public void openConnection() {
         try {
-            // connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/WildSnaill/Desktop/INFS2605/app.db");
-            // connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/Qibinyu/Desktop/INFS2605s/app.db");
-            //connection = DriverManager.getConnection("jdbc:sqlite:/Volumes/Macintosh HD/Users/nicholasliang/Desktop/2605/app.db");
+          
             connection = DriverManager.getConnection("jdbc:sqlite:app.db");
         } catch (SQLException failedConnection) {
             System.err.println(failedConnection);

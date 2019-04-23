@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.*;
 import javafx.scene.*;
 import javafx.stage.*;
+import javafx.scene.control.DatePicker;
 
 public class firstmealcontroller implements Initializable {
 
@@ -55,7 +56,7 @@ public class firstmealcontroller implements Initializable {
     private TextField Fats;
 
     @FXML
-    private TextField Date;
+    private DatePicker Date;
 
     @FXML
     private Button finish;
@@ -68,7 +69,7 @@ public class firstmealcontroller implements Initializable {
         this.carbs = Carbs.getText();
         this.protein = Protein.getText();
         this.fats = Fats.getText();
-        this.date = Date.getText();
+        this.date = Date.getValue().toString();
 
         try {
             database.insertQuery("INSERT INTO Nutrients(Protein, Carbs, Fat) VALUES ('" + protein + "', '" + carbs + "', '" + fats + "');");
