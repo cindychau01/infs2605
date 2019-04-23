@@ -103,11 +103,30 @@ public class goalcontroller implements Initializable {
 
             database.updateCarbGoal(loggedInID, carbGoal);
 
-            float mDiff = database.returnMassGoal(loggedInID) - Float.parseFloat(weightGoal);
-            float sDiff = Float.parseFloat(stepGoal) - database.returnStepGoal(loggedInID);
+            weightGoal = database.returnWeightGoal(loggedInID);
+            stepGoal = database.returnStepsGoal(loggedInID);
 
-            stepsremaining.setText(Float.toString(sDiff));
+            float currentSteps = database.returnStepGoal(loggedInID);
+            float currentWeight = database.returnMassGoal(loggedInID);
+            
+            float mDiff;
+            float sDiff;
+
+            if (Float.parseFloat(weightGoal) > currentWeight) {
+                mDiff = Float.parseFloat(weightGoal) - currentWeight;
+            } else {
+                mDiff = currentWeight - Float.parseFloat(weightGoal);
+            }
+
             massremaining.setText(Float.toString(mDiff));
+
+            if (Float.parseFloat(stepGoal) > currentSteps) {
+                sDiff = Float.parseFloat(stepGoal) - currentSteps;
+                stepsremaining.setText(Float.toString(sDiff));
+            } else {
+                stepsremaining.setText(weightGoal);
+                database.deleteSteps(loggedInID);
+            }
 
             stepsremaining.setVisible(true);
             massremaining.setVisible(true);
@@ -167,12 +186,31 @@ public class goalcontroller implements Initializable {
         try {
             weightGoal = database.returnWeightGoal(loggedInID);
             stepGoal = database.returnStepsGoal(loggedInID);
-            
-            float mDiff = database.returnMassGoal(loggedInID) - Float.parseFloat(weightGoal);
-            float sDiff = Float.parseFloat(stepGoal) - database.returnStepGoal(loggedInID);
 
-            stepsremaining.setText(Float.toString(sDiff));
+            float currentSteps = database.returnStepGoal(loggedInID);
+            float currentWeight = database.returnMassGoal(loggedInID);
+            
+            float mDiff;
+            float sDiff;
+
+            if (Float.parseFloat(weightGoal) > currentWeight) {
+                mDiff = Float.parseFloat(weightGoal) - currentWeight;
+            } else {
+                mDiff = currentWeight - Float.parseFloat(weightGoal);
+            }
+
             massremaining.setText(Float.toString(mDiff));
+
+            if (Float.parseFloat(stepGoal) > currentSteps) {
+                sDiff = Float.parseFloat(stepGoal) - currentSteps;
+                stepsremaining.setText(Float.toString(sDiff));
+            } else {
+                stepsremaining.setText("New Goal!");
+                database.deleteSteps(loggedInID);
+            }
+
+            stepsremaining.setVisible(true);
+            massremaining.setVisible(true);
 
         } catch (SQLException a) {}
     }

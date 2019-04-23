@@ -587,9 +587,9 @@ public Float returnMassGoal(String id) throws SQLException {
         openConnection();
         Statement s = connection.createStatement();
 
-        ResultSet value = s.executeQuery("SELECT Step_Count FROM Daily_Input WHERE User_ID = " + id + " ORDER BY Step_Count DESC LIMIT 1;");
+        ResultSet value = s.executeQuery("SELECT SUM(Step_Count) FROM Daily_Input WHERE User_ID = " + id + " ORDER BY Step_Count DESC LIMIT 1;");
 
-        returnVal = value.getInt("Step_Count");
+        returnVal = value.getInt("SUM(Step_Count)");
 
         s.close();
         connection.close();
@@ -662,4 +662,19 @@ public Float returnMassGoal(String id) throws SQLException {
         s.close();
         connection.close();
     }
+
+    
+    public void deleteSteps(String id) throws SQLException {
+
+        openConnection();
+        Statement s = connection.createStatement();
+
+        s.execute("UPDATE Daily_Input SET Step_Count = NULL WHERE User_ID = " + id + ";");
+
+
+        s.close();
+        connection.close();
+
+    }
+    
 }   

@@ -39,6 +39,11 @@
             <Font name="Avenir Medium" size="13.0" />
          </font>
       </Text>
+      <ImageView fitHeight="120.0" fitWidth="150.0" layoutX="345.0" layoutY="284.0">
+         <image>
+            <Image url="@enclosing.png" />
+         </image>
+      </ImageView>
       <Text fill="#464646" layoutX="39.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Carb Goals">
          <font>
             <Font name="Avenir Medium" size="13.0" />
@@ -59,9 +64,9 @@
             <Image url="@enclosing.png" />
          </image>
       </ImageView>
-      <Text fx:id="stepsremaining" fill="#33435c" layoutX="129.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="106.37600350379944">
+      <Text fx:id="stepsremaining" fill="#33435c" layoutX="129.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Goal" textAlignment="CENTER" wrappingWidth="106.37600350379944">
          <font>
-            <Font name="Avenir Medium" size="23.0" />
+            <Font name="Avenir Medium" size="18.0" />
          </font>
       </Text>
       <Text fill="#464646" layoutX="150.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps to Goal">
@@ -71,7 +76,7 @@
       </Text>
       <Text fx:id="massremaining" fill="#33435c" layoutX="365.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="106.37600350379944">
          <font>
-            <Font name="Avenir Medium" size="23.0" />
+            <Font name="Avenir Medium" size="18.0" />
          </font>
       </Text>
       <Text fill="#464646" layoutX="388.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mass to Goal">
@@ -102,11 +107,6 @@
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="25.0" layoutY="24.0">
          <image>
             <Image url="@goals.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="120.0" fitWidth="150.0" layoutX="345.0" layoutY="284.0">
-         <image>
-            <Image url="@enclosing.png" />
          </image>
       </ImageView>
    </children>
